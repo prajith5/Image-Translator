@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Text Extraction</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; 
+            padding: 200px;
+            background-image: linear-gradient(135deg, black, orange, rgb(246, 41, 41), rgb(212, 236, 30)); /* Gradient background */
+            color: #333; 
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600; 
+            font-size: 2.5rem; 
+            color: #282626; 
+        }
+
+        form {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: 500; 
+            color: #666; 
+        }
+
+        input[type="file"], select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 3px solid #0c0000;
+            border-radius: 16px;
+            font-size: 16px;
+            background-color: #f2f2f2; 
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5%;
+        }
+
+    
+        input[type="submit"] {
+            background: linear-gradient(135deg, #d71e1e, #ff9e9e); 
+            color: #000; 
+            border: none;
+            cursor: pointer;
+            padding: 12px 20px;
+            font-size: 20px;
+            border-radius: 30px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: background 0.3s ease; 
+        }
+
+        input[type="submit"]:hover {
+            background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 3px solid #0c0000;
+            border-radius: 16px;
+            font-size: 16px;
+            background-color: #f2f2f2; 
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Upload an Image for Text Extraction</h1>
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <label>Select Reader Languages:</label>
+        <br>
+        <input type="checkbox" name="languages[]" value="en"> English
+        <input type="checkbox" name="languages[]" value="hi"> Hindi
+        <input type="checkbox" name="languages[]" value="ch_sim"> Simplified Chinese
+        <input type="checkbox" name="languages[]" value="ja"> Japanese
+        <input type="checkbox" name="languages[]" value="ko"> Korean
+        <input type="checkbox" name="languages[]" value="ta"> Tamil
+        <br><br>
+        <label for="dest_lang">Select Translation Language:</label>
+        <select name="dest_lang" id="dest_lang">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="ta">Tamil</option>
+            <option value="ja">Japanese</option>
+            <option value="ko">Korean</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Extract Text">
+    </form>
+</div>
+</body>
+</html>
